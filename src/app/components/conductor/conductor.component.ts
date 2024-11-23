@@ -1,9 +1,9 @@
 // src/app/conductor/conductor.component.ts
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pedido } from '../models/pedido';
-import { CONDUCTORES, PEDIDOS } from '../data/data';
-import { CommonModule } from '@angular/common';
+import { CONDUCTORES, PEDIDOS } from '../../data/data';
+import { Pedido } from '../../models/pedido';
 
 @Component({
   selector: 'app-conductor',
@@ -23,7 +23,7 @@ export class ConductorComponent implements OnInit {
     const conductorId = parseInt(this.route.snapshot.paramMap.get('conductorId')!, 10);
     console.log('Conductor ID:', conductorId); // Verifica que el ID se está obteniendo correctamente
     const conductor = CONDUCTORES.find(c => c.cedula === conductorId);
-  
+
     if (conductor) {
       this.conductorName = conductor.nombre;
       this.pedidos = PEDIDOS.filter(p => p.conductor.cedula === conductorId);
@@ -33,7 +33,7 @@ export class ConductorComponent implements OnInit {
       console.warn('Conductor no encontrado');
     }
   }
-  
+
 
   finalizarEntrega(pedido: Pedido): void {
     console.log(`Entrega finalizada para el pedido #${pedido.id}`);

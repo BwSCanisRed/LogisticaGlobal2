@@ -1,9 +1,9 @@
 // src/app/admin/admin.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pedido } from '../models/pedido';
-import { Conductor } from '../models/conductor';
-import { ADMIN, PEDIDOS, CONDUCTORES } from '../data/data';
+import { ADMIN, CONDUCTORES, PEDIDOS } from '../../data/data';
+import { Conductor } from '../../models/conductor';
+import { Pedido } from '../../models/pedido';
 
 @Component({
   selector: 'app-admin',

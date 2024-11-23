@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { HomeComponent } from "./home/home.component";
-import { Cliente } from './models/cliente';
-import { Pedido } from './models/pedido';
-import { Conductor } from './models/conductor';
-import { Vehiculo } from './models/vehiculo';
+import HomeComponent from "./authentication/home/home.component";
+import { ADMIN, CLIENTES, CONDUCTORES, PEDIDOS, VEHICULOS } from './data/data';
 import { Admin } from './models/admin';
-import { CLIENTES, PEDIDOS, CONDUCTORES, VEHICULOS, ADMIN } from './data/data';
+import { Cliente } from './models/cliente';
+import { Conductor } from './models/conductor';
+import { Pedido } from './models/pedido';
+import { Vehiculo } from './models/vehiculo';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   // Declaración de variables para los datos
   clientes: Cliente[] = CLIENTES;
   pedidos: Pedido[] = PEDIDOS;
-  conductores: Conductor[] = CONDUCTORES; 
+  conductores: Conductor[] = CONDUCTORES;
   vehiculos: Vehiculo[] = VEHICULOS;
   Administradores: Admin[] = ADMIN;
 

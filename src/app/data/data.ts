@@ -1,18 +1,18 @@
 // src/app/data/data.ts
 
-import { Cliente } from '../models/cliente';
-import { Pedido } from '../models/pedido';
-import { Conductor } from '../models/conductor';
-import { Vehiculo } from '../models/vehiculo';
 import { Admin } from '../models/admin';
+import { Cliente } from '../models/cliente';
+import { Conductor } from '../models/conductor';
+import { Pedido } from '../models/pedido';
+import { Vehiculo } from '../models/vehiculo';
 
 // Datos de ejemplo para Vehiculo
 const vehiculo1 = new Vehiculo(1, 'ABC123', 'Toyota', 2020, 2000);
 const vehiculo2 = new Vehiculo(2, 'XYZ789', 'Honda', 2022, 1500);
 
 // Datos de ejemplo para Conductor
-const conductor1 = new Conductor(1001, 'Juan Perez', 12345, 'Norte', 'juan@example.com', 'password1', vehiculo1);
-const conductor2 = new Conductor(1002, 'Carlos Gomez', 67890, 'Sur', 'carlos@example.com', 'password2', vehiculo2);
+const conductor1 = new Conductor(1001, 'Juan Perez', 12345, 'Norte', 'juan@example.com', 'password1', vehiculo1,"conductor");
+const conductor2 = new Conductor(1002, 'Carlos Gomez', 67890, 'Sur', 'carlos@example.com', 'password2', vehiculo2,"despachador");
 
 // Datos de ejemplo para Admin (antes llamado Despachador)
 const admin1 = new Admin(2001, 'Ana Martinez', 'Bodega Norte', 'ana@example.com', 'password3');
