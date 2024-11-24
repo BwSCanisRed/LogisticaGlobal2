@@ -25,7 +25,7 @@ export default class HomeComponent {
           this.router.navigate(['/admin',user.cedula]);
 
         } else if (user.rol === 'conductor') {
-          this.router.navigate(['/conductor/',user.cedula]);
+          this.router.navigate(['/conductor',user.cedula]);
         } else {
           alert('Rol desconocido, contacte al administrador');
         }

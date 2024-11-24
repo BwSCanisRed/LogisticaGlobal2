@@ -7,7 +7,7 @@ export class Conductor {
   licencia: number;
   zona: string;
   correo: string;
-  contraseña: string;
+  contrasena: string;
   vehiculo: Vehiculo;
   rol:String;
   pedidos: Pedido[];
@@ -18,7 +18,7 @@ export class Conductor {
     licencia: number,
     zona: string,
     correo: string,
-    contraseña: string,
+    contrasena: string,
     vehiculo: Vehiculo,
     rol:String,
     pedidos: Pedido[] = []
@@ -28,7 +28,7 @@ export class Conductor {
     this.licencia = licencia;
     this.zona = zona;
     this.correo = correo;
-    this.contraseña = contraseña;
+    this.contrasena = contrasena;
     this.vehiculo = vehiculo;
     this.rol=rol;
     this.pedidos = pedidos;
