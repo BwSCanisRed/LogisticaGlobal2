@@ -7,6 +7,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Conductor } from '../../models/conductor';
 import { AdminService } from '../../services/admin.service';
+import { ConductorService } from '../../services/conductor.service';
+import { VehiculoService } from '../../services/vehiculo.service';
 import { NuevoAdminComponentComponent } from '../nuevo-admin-component/nuevo-admin-component.component';
 import { NuevoConductorComponentComponent } from '../nuevo-conductor-component/nuevo-conductor-component.component';
 import { NuevoPedidoComponentComponent } from '../nuevo-pedido-component/nuevo-pedido-component.component';
@@ -22,16 +24,20 @@ import { NuevoVehiculoComponentComponent } from '../nuevo-vehiculo-component/nue
 })
 export class AdminComponent implements OnInit {
   pedidos: Pedido[] = []; // Declaración de los pedidos
-  conductores: Conductor[] = []; // Declaración de los conductores // Declaración del nombre del administrador
+  //conductores: Conductor[] = []; // Declaración de los conductores // Declaración del nombre del administrador
   //selectedDriver: Conductor | null = null;
   adminName: string = '';
   adminId: number | null = null;
   selectedDriver: Conductor | null = null;
+  vehiculos: any[] = []; // Lista de vehículos
+  conductores: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService, // Inyectar el servicio
-    private dialog: MatDialog // Inyectar MatDialog
+    private dialog: MatDialog, // Inyectar MatDialog
+    private vehiculoService: VehiculoService,
+    private conductorService: ConductorService
   ) {}
 
   ngOnInit(): void {
