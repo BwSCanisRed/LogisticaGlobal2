@@ -14,5 +14,4 @@ export class ConductorService {
       headers: { 'Content-Type': 'application/json' }, // Asegura que envías JSON
     });
   }
-
 }
