@@ -1,0 +1,174 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logística Global</title>
+
+  <!-- Cargar las fuentes Roboto y Pacifico -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap">
+
+  <style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b676b;
+    font-family: 'Century Gothic', sans-serif;
+  }
+
+  /* Contenedor principal con tamaño ajustado */
+  .container {
+    display: flex;
+    width: 1000px;
+    height: 600px;
+    background-color: #e5f2ec;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Century Gothic', sans-serif;
+  }
+
+  /* Estilos de la sección izquierda */
+  .left-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d0ff00;
+    border-radius: 15px 0 0 15px;
+  }
+
+  .logo {
+    max-width: 90%;
+  }
+
+  /* Estilos de la sección derecha */
+  .right-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f2fff4;
+    border-radius: 0 15px 15px 0;
+  }
+
+  /* Títulos y formularios */
+  h2 {
+    font-size: 1.5rem;
+    color: #556b6a;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 1rem;
+    color: #758f8b;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  .tracking-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+
+  /* Botones */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  .login-btn,
+  .register-btn {
+    width: 48%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #407b77;
+    color: white;
+    cursor: pointer;
+    font-family: 'Century Gothic', sans-serif;
+  }
+
+  .login-btn:hover,
+  .register-btn:hover {
+    background-color: #2f5d5a;
+  }
+
+  /* Sección de tracking */
+  .tracking {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .tracking-input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    flex: 1;
+    font-family: 'Century Gothic', sans-serif;
+  }
+
+  .track-btn {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #d0ff00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Century Gothic', sans-serif;
+  }
+
+  .track-btn:hover {
+    background-color: #b0e000;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <img src="assets/Logo.png" alt="Logistica Global Logo" class="logo" />
+    </div>
+    <div class="right-section">
+      <h2>Estamos para servir</h2>
+      <form>
+        <div class="form-group">
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" [(ngModel)]="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">contrasena:</label>
+          <input type="password" id="password" name="password" [(ngModel)]="password" />
+        </div>
+        <div class="buttons">
+          <button type="button" class="login-btn" (click)="login()">Iniciar Sesión</button>
+        </div>
+      </form>
+      <div class="tracking">
+        <input
+          type="text"
+          placeholder="Ingresa # de guía"
+          [(ngModel)]="trackingNumber"
+          class="tracking-input"
+        />
+        <button type="button" class="track-btn" (click)="goToTracking()">Consultar</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
