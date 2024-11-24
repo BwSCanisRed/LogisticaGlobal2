@@ -1,5 +1,5 @@
-import { Cliente } from './cliente'; // Asegúrate de que el path es correcto
 import { Admin } from './admin'; // Asegúrate de que el path es correcto
+import { Cliente } from './cliente'; // Asegúrate de que el path es correcto
 import { Conductor } from './conductor'; // Asegúrate de que el path es correcto
 
 export class Pedido {
@@ -10,15 +10,17 @@ export class Pedido {
     ciudad: string;
     ct_paquetes: number;
     estado: string;
+    origen:String;
+    destino:String
     fechaBodega: Date | null;
     fechaTransito: Date | null;
     fechaEntregado: Date | null;
     foto: string;
     novedad: string;
-    cliente: Cliente;
-    admin: Admin;
-    conductor: Conductor;
-  
+    cliente?: Cliente;
+    admin?: Admin;
+    conductor?: Conductor;
+
     constructor(
       id: number,
       direccion: string,
@@ -32,6 +34,8 @@ export class Pedido {
       fechaEntregado: Date | null,
       foto: string,
       novedad: string,
+      origen:string,
+      destino:string,
       cliente: Cliente,
       admin: Admin,
       conductor: Conductor
@@ -47,10 +51,11 @@ export class Pedido {
       this.fechaTransito = fechaTransito;
       this.fechaEntregado = fechaEntregado;
       this.foto = foto;
+      this.destino=destino;
+      this.origen=origen;
       this.novedad = novedad;
       this.cliente = cliente;
       this.admin = admin;
       this.conductor = conductor;
     }
   }
-  

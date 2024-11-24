@@ -23,8 +23,8 @@ const cliente1 = new Cliente(3001, 'Maria Lopez', 'CC', 'maria@example.com', 'pa
 const cliente2 = new Cliente(3002, 'Jose Ruiz', 'CC', 'jose@example.com', 'password6', []);
 
 // Datos de ejemplo para Pedido
-const pedido1 = new Pedido(1, 'Calle 123', 'Localidad 1', 11001, 'Bogotá', 3, 'En tránsito', new Date(), null, null, 'foto1.jpg', 'Sin novedad', cliente1, admin1, conductor1);
-const pedido2 = new Pedido(2, 'Carrera 45', 'Localidad 2', 22001, 'Medellín', 2, 'En tránsito', null, new Date(), null, 'foto2.jpg', 'Retrasado', cliente2, admin2, conductor1);
+const pedido1 = new Pedido(1, 'Calle 123', 'Localidad 1', 11001, 'Bogotá', 3, 'En tránsito', new Date(), null, null, 'foto1.jpg', 'Sin novedad', 'origen1','destino1', cliente1, admin1, conductor1);
+const pedido2 = new Pedido(2, 'Carrera 45', 'Localidad 2', 22001, 'Medellín', 2, 'En tránsito', null, new Date(), null, 'foto2.jpg', 'Retrasado', 'origen2','destino2', cliente2, admin2, conductor1);
 
 // Agrega los pedidos a los clientes
 cliente1.pedidos.push(pedido1);

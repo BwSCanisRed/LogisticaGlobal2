@@ -4,14 +4,14 @@
             <img src="https://via.placeholder.com/50" alt="Icono de camión" class="logo" />
             <div class="driver-name">{{ conductorName }}</div> <!-- Verifica que 'conductorName' esté bien enlazado -->
         </div>
-  
+
       <div class="title">Listado de pedidos por entregar</div>
-  
+
       <div class="order-list">
         <div *ngFor="let pedido of pedidos" class="order-card">
           <div class="order-info">
             <p><strong># Pedido: {{ pedido.id }}</strong></p>
-            <p><strong>Nombre Cliente:</strong> {{ pedido.cliente.nombre }}</p>
+            <p><strong>Nombre Cliente:</strong> {{ pedido.cliente.nombre}}</p>
             <p><strong>Dirección:</strong> {{ pedido.direccion }}</p>
             <p><strong>Ciudad:</strong> {{ pedido.ciudad }}</p>
           </div>
@@ -22,4 +22,3 @@
       </div>
     </div>
   </body>
-  

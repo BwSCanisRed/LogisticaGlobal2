@@ -19,20 +19,18 @@ export class ConductorComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // Supongamos que el ID del conductor se pasa como parámetro de la ruta
     const conductorId = parseInt(this.route.snapshot.paramMap.get('conductorId')!, 10);
-    console.log('Conductor ID:', conductorId); // Verifica que el ID se está obteniendo correctamente
+    console.log('Conductor ID:', conductorId);
     const conductor = CONDUCTORES.find(c => c.cedula === conductorId);
-
     if (conductor) {
-      this.conductorName = conductor.nombre;
-      this.pedidos = PEDIDOS.filter(p => p.conductor.cedula === conductorId);
-      console.log('Conductor encontrado:', conductor); // Depuración para ver los datos del conductor
-      console.log('Pedidos del conductor:', this.pedidos); // Verifica los pedidos asociados
+        this.conductorName = conductor.nombre;
+        this.pedidos = PEDIDOS.filter(p => p.conductor && p.conductor.cedula === conductorId); // Verificación añadida
+        console.log('Conductor encontrado:', conductor);
+        console.log('Pedidos del conductor:', this.pedidos);
     } else {
-      console.warn('Conductor no encontrado');
+        console.warn('Conductor no encontrado');
     }
-  }
+}
 
 
   finalizarEntrega(pedido: Pedido): void {
