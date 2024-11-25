@@ -114,6 +114,13 @@
             <input type="email" placeholder="Correo" [(ngModel)]="conductor.correo" name="correo" required>
             <input type="password" placeholder="Contraseña" [(ngModel)]="conductor.contrasena" name="contraseña"
                 required>
+
+            <p>Seleccionar Vehículo:</p>
+            <select [(ngModel)]="conductor.vehiculoId" name="vehiculoId" required>
+                <option *ngFor="let vehiculo of vehiculos" [ngValue]="vehiculo.id">
+                    {{ vehiculo.placa }} - {{ vehiculo.marca }}
+                </option>
+            </select>
             <button type="submit">Guardar</button>
         </form>
     </div>

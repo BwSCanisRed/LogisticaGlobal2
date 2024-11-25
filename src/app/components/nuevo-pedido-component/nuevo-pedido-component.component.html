@@ -110,8 +110,16 @@
         <h2>Nuevo Pedido</h2>
         <form (ngSubmit)="guardarPedido()">
             <input type="text" placeholder="Origen" [(ngModel)]="pedido.origen" name="origen" required>
-            <input type="text" placeholder="Destino" [(ngModel)]="pedido.destino" name="destino" required>
-            <input type="date" [(ngModel)]="pedido.fechaBodega" name="fecha" required>
+            <input type="text" placeholder="Direccion" [(ngModel)]="pedido.direccion" name="direccion" required>
+            <input type="text" placeholder="Localidad" [(ngModel)]="pedido.localidad" name="localidad" required>
+            <p>Codigo Postal:</p><input type="number" placeholder="Codigo Postal" [(ngModel)]="pedido.cd_postal" name="direccion" required>
+            <input type="text" placeholder="Ciudad" [(ngModel)]="pedido.ciudad" name="ciudad" required>
+            <p>Cantidad de Paquetes:</p><input type="number" placeholder="Cantidad de Paquetes" [(ngModel)]="pedido.ct_paquetes" name="ct_paquetes" required>
+            <input type="text" placeholder="Estado" [(ngModel)]="pedido.estado" name="estado" required>
+            <input type="text" placeholder="Direccion" [(ngModel)]="pedido.direccion" name="direccion" required>
+            <input type="date" [(ngModel)]="pedido.fechaBodega" name="fechaBodega">
+            <input type="date" [(ngModel)]="pedido.fechaTransito" name="fechaTransito">
+            <input type="date" [(ngModel)]="pedido.fechaEntregado" name="fechaEntregado">
             <button type="submit">Guardar</button>
         </form>
     </div>

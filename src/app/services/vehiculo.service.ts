@@ -16,4 +16,8 @@ export class VehiculoService {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  obtenerVehiculos(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.API_URL}/api/vehiculos/mostrarVehiculo`); // Ajusta el endpoint según tu backend
+  }
 }

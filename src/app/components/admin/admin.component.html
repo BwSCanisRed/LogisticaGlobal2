@@ -15,27 +15,27 @@
 </header>
 
 <main class="main-content">
-    <h1>Bienvenido!</h1>
-    <div class="pending-orders">
-        <span>{{ pedidos.length }} pedidos pendientes</span>
+  <h1>Bienvenido!</h1>
+
+  <h2>{{ pedidosPendientes.length }} pedidos pendientes</h2>
+
+  <div class="orders-assign">
+    <div class="orders">
+      <h3>Pedidos en bodega:</h3>
+      <div *ngFor="let pedido of pedidosPendientes" class="order-item">
+        <p><strong># Pedido:</strong> {{ pedido.id }} - Dirección: {{ pedido.direccion }}</p>
+        <p><strong>Localidad:</strong> {{ pedido.localidad }}</p>
+
+        <label>Asignar conductor:</label>
+        <select (change)="agregarAsignacion(pedido.id, obtenerValorSelect($event))">
+          <option *ngFor="let conductor of conductores" [value]="conductor.cedula">
+            {{ conductor.nombre }}
+          </option>
+        </select>
+      </div>
     </div>
-
-    <div class="orders-assign">
-        <!-- Lista de pedidos en bodega -->
-        <div class="orders">
-            <div class="order-item" *ngFor="let pedido of pedidos">
-                <p><strong># Pedido:</strong> {{ pedido.id }} Dirección: {{ pedido.direccion }}</p>
-                <p><strong>Localidad:</strong> {{ pedido.localidad }}</p>
-            </div>
-        </div>
-
-        <!-- Lista de conductores disponibles -->
-        <div class="drivers">
-            <button class="driver-button" *ngFor="let conductor of conductores">
-                {{ conductor.nombre }}
-            </button>
-        </div>
-    </div>
-
-    <button class="assign-button">Asignar!</button>
+    <button class="assign-button" (click)="asignarConductores()">
+      Asignar Conductores
+    </button>
+  </div>
 </main>
