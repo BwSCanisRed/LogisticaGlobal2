@@ -64,10 +64,5 @@ export class NuevoConductorComponentComponent {
       },
     });
   }
-
-
-  getVehiculo(){
-
-  }
 }
 

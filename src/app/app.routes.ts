@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'nuevo-admin', component: AdminComponent },
   { path: 'nuevo-vehiculo', component: NuevoVehiculoComponentComponent },
   { path: 'nuevo-conductor', component: NuevoConductorComponentComponent },
-  { path: 'nuevo-pedido', component: NuevoPedidoComponentComponent }
+  { path: 'nuevo-pedido/:adminId', component: NuevoPedidoComponentComponent }
 ];
 
 @NgModule({

@@ -26,13 +26,14 @@ export class AuthService {
     login(email: string, password: string): Observable<any> {
       console.log('URL de login:', this.LOGIN_URL);
 
-      return this.httpClient.post<any>(this.LOGIN_URL, { email, password }).pipe(
-        tap((response) => {
+      return this.httpClient.post<any>(this.LOGIN_URL, { email, password }).pipe( tap((response) => {
           console.log('Respuesta del servidor:', response); // Agrega este log
 
           if (response.jwt) {
             this.setToken(response.jwt);
             console.log('Token recibido:', response.jwt);
+            localStorage.setItem('adminId', response.adminId);
+            console.log('Token:', response.jwt, 'Admin ID:', response.adminId);
           } else {
             console.error('Token no encontrado en la respuesta');
           }

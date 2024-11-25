@@ -11,12 +11,12 @@ export class Pedido {
     ct_paquetes: number;
     estado: string;
     origen:String;
-    destino:String
+    destino:String|null;
     fechaBodega: Date | null;
     fechaTransito: Date | null;
     fechaEntregado: Date | null;
-    foto: string;
-    novedad: string;
+    foto: string|null;
+    novedad: string|null;
     cliente?: Cliente;
     admin?: Admin;
     conductor?: Conductor;
