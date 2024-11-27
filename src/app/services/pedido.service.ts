@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { Pedido } from '../models/pedido';
 
 @Injectable({
@@ -26,11 +26,18 @@ export class PedidoService {
     return this.http.get<Pedido[]>(`${this.API_URL}/api/pedidos/admin/${adminId}`);
   }
 
-  asignarConductores(asignaciones: { pedidoId: number; conductorId: number }[]): Observable<void> {
-    const url = `${this.API_URL}/api/pedidos/asignarConductores`;
-    return this.http.post<void>(url, asignaciones, {
-      headers: { 'Content-Type': 'application/json' },
+  asignarConductores(asignaciones: { pedidoId: number; conductorId: number }[]): Observable<void[]> {
+    const requests = asignaciones.map(asignacion => {
+      const url = `${this.API_URL}/api/pedidos/${asignacion.pedidoId}/asignarConductor`;
+      return this.http.post<void>(url, null, {
+        headers: { 'Content-Type': 'application/json' },
+        params: { conductorId: asignacion.conductorId.toString() } // Si necesitas pasar el conductorId como query param
+      });
     });
+
+    // Ejecutar todas las peticiones HTTP en paralelo
+    return forkJoin(requests);
   }
+
 
 }
