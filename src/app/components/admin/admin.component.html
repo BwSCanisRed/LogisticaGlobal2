@@ -14,13 +14,15 @@
     </div>
 </header>
 
-<main class="main-content">
-  <h1>Bienvenido!</h1>
+<body>
+  <main class="main-content">
+    <h1>Bienvenido, {{ adminName }}!</h1>
 
-  <h2>{{ pedidosPendientes.length }} pedidos pendientes</h2>
+    <!-- Contador de pedidos pendientes -->
+    <h2>{{ pedidosPendientes.length }} pedidos pendientes</h2>
 
-  <div class="orders-assign">
-    <div class="orders">
+    <!-- Pedidos pendientes -->
+    <div class="orders-assign">
       <h3>Pedidos en bodega:</h3>
       <div *ngFor="let pedido of pedidosPendientes" class="order-item">
         <p><strong># Pedido:</strong> {{ pedido.id }} - Dirección: {{ pedido.direccion }}</p>
@@ -33,9 +35,13 @@
           </option>
         </select>
       </div>
+      <button
+        class="assign-button"
+        [disabled]="asignaciones.length === 0"
+        (click)="asignarConductores()">
+        Asignar Conductores
+      </button>
     </div>
-    <button class="assign-button" (click)="asignarConductores()">
-      Asignar Conductores
-    </button>
-  </div>
-</main>
+  </main>
+
+</body>

@@ -17,11 +17,20 @@ export class PedidoService {
     });
   }
 
-  obtenerPedidosPendientes(): Observable<Pedido[]> {
+  obtenerPedidosPendientes(adminId:number): Observable<Pedido[]> {
+
     return this.http.get<Pedido[]>(`${this.API_URL}/pendientes`);
   }
 
-  asignarConductores(asignaciones: { pedidoId: number; conductorId: number }[]): Observable<void> {
-    return this.http.post<void>(`${this.API_URL}/asignarConductores`, asignaciones);
+  obtenerPedidosPorAdmin(adminId: number): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(`${this.API_URL}/api/pedidos/admin/${adminId}`);
   }
+
+  asignarConductores(asignaciones: { pedidoId: number; conductorId: number }[]): Observable<void> {
+    const url = `${this.API_URL}/api/pedidos/asignarConductores`;
+    return this.http.post<void>(url, asignaciones, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
 }

@@ -71,6 +71,9 @@ export class AdminComponent  {
     } else {
       console.error('Administrador no encontrado');
     }
+
+    //cargar pedidos
+
   }
 
   abrirModalAdmin(): void {
@@ -125,15 +128,20 @@ export class AdminComponent  {
   }
 
   cargarPedidosPendientes(): void {
-    this.pedidoService.obtenerPedidosPendientes().subscribe({
-      next: (pedidos) => {
-        this.pedidosPendientes = pedidos;
-      },
-      error: (error) => {
-        console.error('Error al cargar pedidos pendientes:', error);
-      }
-    });
+    if (this.adminId) {
+      this.pedidoService.obtenerPedidosPorAdmin(this.adminId).subscribe({
+        next: (pedidos) => {
+          // Filtrar pedidos pendientes (sin conductorId asignado)
+          this.pedidosPendientes = pedidos.filter((pedido) => !pedido.conductor);
+          console.log('Pedidos pendientes:', this.pedidosPendientes);
+        },
+        error: (error) => {
+          console.error('Error al cargar pedidos pendientes:', error);
+        },
+      });
+    }
   }
+
 
   cargarConductores(): void {
     this.conductorService.obtenerConductores().subscribe({
