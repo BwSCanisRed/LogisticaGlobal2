@@ -29,9 +29,9 @@ export class PedidoService {
   asignarConductores(asignaciones: { pedidoId: number; conductorId: number }[]): Observable<void[]> {
     const requests = asignaciones.map(asignacion => {
       const url = `${this.API_URL}/api/pedidos/${asignacion.pedidoId}/asignarConductor`;
-      return this.http.post<void>(url, null, {
+      return this.http.put<void>(url, null, {
         headers: { 'Content-Type': 'application/json' },
-        params: { conductorId: asignacion.conductorId.toString() } // Si necesitas pasar el conductorId como query param
+        params: { conductorId: asignacion.conductorId.toString() }
       });
     });
 
