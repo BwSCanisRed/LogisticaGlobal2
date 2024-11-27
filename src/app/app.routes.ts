@@ -6,7 +6,7 @@ import { ConductorComponent } from './components/conductor/conductor.component';
 import { NuevoConductorComponentComponent } from './components/nuevo-conductor-component/nuevo-conductor-component.component';
 import { NuevoPedidoComponentComponent } from './components/nuevo-pedido-component/nuevo-pedido-component.component';
 import { NuevoVehiculoComponentComponent } from './components/nuevo-vehiculo-component/nuevo-vehiculo-component.component';
-import { TrackingComponent } from './tracking/tracking.component';
+import { TrackingComponent } from './components/tracking/tracking.component';
 
 
 export const routes: Routes = [
@@ -18,7 +18,8 @@ export const routes: Routes = [
   { path: 'nuevo-admin', component: AdminComponent },
   { path: 'nuevo-vehiculo', component: NuevoVehiculoComponentComponent },
   { path: 'nuevo-conductor', component: NuevoConductorComponentComponent },
-  { path: 'nuevo-pedido/:adminId', component: NuevoPedidoComponentComponent }
+  { path: 'nuevo-pedido/:adminId', component: NuevoPedidoComponentComponent },
+  { path: 'tracking/:trackingNumber', component: TrackingComponent }
 ];
 
 @NgModule({

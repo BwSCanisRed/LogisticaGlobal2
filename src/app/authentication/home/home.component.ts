@@ -38,12 +38,11 @@ export default class HomeComponent {
   }
 
   goToTracking(): void {
-    // Lógica para tracking, asumiendo que obtendrás datos del backend
-    // Esto depende de cómo esté estructurada tu API
     if (this.trackingNumber) {
-      this.router.navigate(['/tracking', this.trackingNumber]);
+      this.router.navigate(['/tracking/', this.trackingNumber]);
     } else {
       alert('Por favor, ingrese un número de guía válido');
     }
   }
+
 }

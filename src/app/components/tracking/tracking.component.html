@@ -1,0 +1,74 @@
+<div *ngIf="pedido; else notFoundTemplate">
+  <div class="tracking-container">
+    <!-- Cabecera del Tracking -->
+    <div class="tracking-header">
+      <p>Referencia: <span class="reference">#{{ pedido.id }}</span></p>
+      <p>Guía nro. <span class="tracking-number">{{ pedido.id }}</span></p>
+    </div>
+
+    <!-- Estado del Pedido -->
+    <div class="tracking-status">
+      <div
+        class="status-step"
+        [ngClass]="{ 'completed': pedido.fechaBodega, 'pending': !pedido.fechaBodega }">
+        <div class="status-icon">✔</div>
+        <p class="status-text">Entrega creada</p>
+        <p class="status-date" *ngIf="pedido.fechaBodega">{{ pedido.fechaBodega | date: 'longDate' }}</p>
+        <p class="status-date" *ngIf="!pedido.fechaBodega">Pendiente</p>
+      </div>
+
+      <div
+        class="status-line"
+        [ngClass]="{ 'completed': pedido.fechaTransito, 'pending': !pedido.fechaTransito }">
+      </div>
+
+      <div
+        class="status-step"
+        [ngClass]="{ 'completed': pedido.fechaTransito, 'pending': !pedido.fechaTransito }">
+        <div class="status-icon">🚚</div>
+        <p class="status-text">Entrega en tránsito</p>
+        <p class="status-date" *ngIf="pedido.fechaTransito">{{ pedido.fechaTransito | date: 'longDate' }}</p>
+        <p class="status-date" *ngIf="!pedido.fechaTransito">Pendiente</p>
+      </div>
+
+      <div
+        class="status-line"
+        [ngClass]="{ 'completed': pedido.fechaEntregado, 'pending': !pedido.fechaEntregado }">
+      </div>
+
+      <div
+        class="status-step"
+        [ngClass]="{ 'completed': pedido.fechaEntregado, 'pending': !pedido.fechaEntregado }">
+        <div class="status-icon">✅</div>
+        <p class="status-text">Entregado</p>
+        <p class="status-date" *ngIf="pedido.fechaEntregado">{{ pedido.fechaEntregado | date: 'longDate' }}</p>
+        <p class="status-date" *ngIf="!pedido.fechaEntregado">Pendiente</p>
+      </div>
+    </div>
+
+    <!-- Información del Destinatario -->
+    <div class="order-info">
+      <h4>Destinatario</h4>
+      <p><strong>Nombre:</strong> {{ pedido.cliente?.nombre || 'N/A' }}</p>
+      <p><strong>Contacto:</strong> {{ pedido.cliente?.correo || 'N/A' }}</p>
+      <p><strong>Dirección:</strong> {{ pedido.direccion }}</p>
+      <p><strong>Ciudad:</strong> {{ pedido.ciudad }}</p>
+    </div>
+
+    <!-- Detalles del Pedido -->
+    <div class="order-details">
+      <h4>Detalles del Pedido</h4>
+      <p><strong>Nro. de cajas:</strong> {{ pedido.ct_paquetes }}</p>
+      <p><strong>Estado:</strong> {{ pedido.estado }}</p>
+      <p *ngIf="pedido.novedad"><strong>Novedades:</strong> {{ pedido.novedad }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Plantilla para Pedido No Encontrado -->
+<ng-template #notFoundTemplate>
+  <div class="tracking-not-found">
+    <h3>Pedido no encontrado</h3>
+    <p>Por favor, verifica el número de guía e inténtalo nuevamente.</p>
+  </div>
+</ng-template>
