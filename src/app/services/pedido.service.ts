@@ -39,5 +39,10 @@ export class PedidoService {
     return forkJoin(requests);
   }
 
+  getPedidoPorTracking(trackingNumber: string): Observable<Pedido> {
+    const url = `${this.API_URL}/api/pedidos/tracking/${trackingNumber}`;
+    return this.http.get<Pedido>(url);
+  }
+
 
 }
