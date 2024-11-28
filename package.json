@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:railway": "node server.js",
+    "start:netlify": "npm run build",
     "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
