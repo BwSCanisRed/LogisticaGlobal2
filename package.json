@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:netlify": "ng serve",
-    "build": "ng build --prod",
+    "start:railway": "node server.js",
+    "build": "npm run config -- --environment=prod && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:logistica_global2": "node dist/logistica_global2/server/server.mjs"
