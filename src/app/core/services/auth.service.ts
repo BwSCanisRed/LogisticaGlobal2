@@ -7,7 +7,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private LOGIN_URL = 'http://localhost:8090/auth/sign-in';
+  private LOGIN_URL = 'https://logisticaglobalbackend-production.up.railway.app/auth/sign-in';
   private tokenKey = 'authToken';
 
   constructor(private httpClient: HttpClient, private router: Router) {}

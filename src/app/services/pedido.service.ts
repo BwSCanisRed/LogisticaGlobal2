@@ -7,7 +7,7 @@ import { Pedido } from '../models/pedido';
   providedIn: 'root'
 })
 export class PedidoService {
-  private API_URL = 'http://localhost:8090';
+  private API_URL = 'https://logisticaglobalbackend-production.up.railway.app';
 
   constructor(private http: HttpClient) {}
 

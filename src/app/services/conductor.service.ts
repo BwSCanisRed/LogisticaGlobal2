@@ -7,7 +7,7 @@ import { Conductor } from '../models/conductor';
   providedIn: 'root'
 })
 export class ConductorService {
-  private API_URL = 'http://localhost:8090';
+  private API_URL = 'https://logisticaglobalbackend-production.up.railway.app';
   constructor(private http: HttpClient) {}
 
   guardarConductor(conductor: any): Observable<any>{
